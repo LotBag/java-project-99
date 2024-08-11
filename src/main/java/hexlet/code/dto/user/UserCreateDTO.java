@@ -14,11 +14,9 @@ public class UserCreateDTO {
     @Email
     @NotNull
     @JsonProperty("email")
-    private String email;
-
+    private String username;
     private String firstName;
     private String lastName;
-
     @NotNull
     @Size(min = 3)
     private String password;

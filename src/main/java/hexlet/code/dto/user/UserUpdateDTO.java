@@ -9,14 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserUpdateDTO {
-
     private String firstName;
     private String lastName;
-
     @Email
     @JsonProperty("email")
-    private String userName;
-
+    private String username;
     @Size(min = 3)
     private String password;
 }
