@@ -8,9 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @SpringBootApplication
-
-
 public class AppApplication {
+
 	public static void main(String[] args) {
 		SpringApplication.run(AppApplication.class, args);
 	}
@@ -19,6 +18,5 @@ public class AppApplication {
 	public Faker getFaker() {
 		return new Faker();
 	}
-
 
 }

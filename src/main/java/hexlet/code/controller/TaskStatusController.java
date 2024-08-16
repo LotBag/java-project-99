@@ -38,13 +38,13 @@ public class TaskStatusController {
     private final TaskStatusRepository taskStatusRepository;
 
     @GetMapping
-    public ResponseEntity<List<TaskStatusDTO>> index(@RequestParam(defaultValue = "0") int _start,
-                                                     @RequestParam(defaultValue = "2147483647") int _end,
-                                                     @RequestParam(defaultValue = "id") String _sort,
-                                                     @RequestParam(defaultValue = "ASC") String _order) {
-        int page = _start / (_end - _start);
-        Sort.Direction direction = Sort.Direction.fromString(_order);
-        Pageable pageable = PageRequest.of(page, _end - _start, Sort.by(direction, _sort));
+    public ResponseEntity<List<TaskStatusDTO>> index(@RequestParam(defaultValue = "0") int start,
+                                                     @RequestParam(defaultValue = "2147483647") int end,
+                                                     @RequestParam(defaultValue = "id") String sort,
+                                                     @RequestParam(defaultValue = "ASC") String order) {
+        int page = start / (end - start);
+        Sort.Direction direction = Sort.Direction.fromString(order);
+        Pageable pageable = PageRequest.of(page, end - start, Sort.by(direction, sort));
 
         List<TaskStatusDTO> result =  taskStatusRepository.findAll(pageable).stream()
                 .map(taskStatusMapper::map)

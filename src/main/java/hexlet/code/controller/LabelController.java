@@ -37,13 +37,13 @@ public class LabelController {
     private final LabelMapper labelMapper;
 
     @GetMapping
-    public ResponseEntity<List<LabelDTO>> index(@RequestParam(defaultValue = "0") int _start,
-                                                @RequestParam(defaultValue = "2147483647") int _end,
-                                                @RequestParam(defaultValue = "id") String _sort,
-                                                @RequestParam(defaultValue = "ASC") String _order) {
-        int page = _start / (_end - _start);
-        Sort.Direction direction = Sort.Direction.fromString(_order);
-        Pageable pageable = PageRequest.of(page, _end - _start, Sort.by(direction, _sort));
+    public ResponseEntity<List<LabelDTO>> index(@RequestParam(defaultValue = "0") int start,
+                                                @RequestParam(defaultValue = "2147483647") int end,
+                                                @RequestParam(defaultValue = "id") String sort,
+                                                @RequestParam(defaultValue = "ASC") String order) {
+        int page = start / (end - start);
+        Sort.Direction direction = Sort.Direction.fromString(order);
+        Pageable pageable = PageRequest.of(page, end - start, Sort.by(direction, sort));
 
         List<LabelDTO> result =  labelRepository.findAll(pageable).stream()
                 .map(labelMapper::map)

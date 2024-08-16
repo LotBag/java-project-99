@@ -10,10 +10,10 @@
     - the Java Language Specification at
       https://docs.oracle.com/javase/specs/jls/se11/html/index.html
 
-    - the Sun Code Conventions at https://www.oracle.com/java/technologies/javase/codeconventions-contents.html
+    - the Sun Code Conventions at https://www.oracle.com/technetwork/java/codeconvtoc-136057.html
 
     - the Javadoc guidelines at
-      https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html
+      https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html
 
     - the JDK Api documentation https://docs.oracle.com/en/java/javase/11/
 
@@ -35,7 +35,7 @@
     <!--
         If you set the basedir property below, then all reported file
         names will be relative to the specified directory. See
-        https://checkstyle.org/config.html#Checker
+        https://checkstyle.org/5.x/config.html#Checker
 
         <property name="basedir" value="${basedir}"/>
     -->
@@ -100,11 +100,11 @@
 
         <!-- Checks for Javadoc comments.                     -->
         <!-- See https://checkstyle.org/config_javadoc.html -->
-        <module name="InvalidJavadocPosition"/>
-        <module name="JavadocMethod"/>
-        <module name="JavadocType"/>
+        <!--        <module name="InvalidJavadocPosition"/>-->
+        <!--        <module name="JavadocMethod"/>-->
+        <!--        <module name="JavadocType"/>-->
         <!-- <module name="JavadocVariable"/> -->
-        <module name="JavadocStyle"/>
+        <!--        <module name="JavadocStyle"/>-->
         <!-- <module name="MissingJavadocMethod"/> -->
 
         <!-- Checks for Naming Conventions.                  -->
@@ -115,12 +115,12 @@
         <module name="MemberName"/>
         <module name="MethodName"/>
         <module name="PackageName"/>
-        <!--    <module name="ParameterName"/>-->
+        <module name="ParameterName"/>
         <module name="StaticVariableName"/>
         <module name="TypeName"/>
 
         <!-- Checks for imports                              -->
-        <!-- See https://checkstyle.org/config_imports.html -->
+        <!-- See https://checkstyle.org/config_import.html -->
         <module name="AvoidStarImport"/>
         <module name="IllegalImport"/> <!-- defaults to sun.* packages -->
         <module name="RedundantImport"/>
@@ -147,7 +147,7 @@
         <module name="WhitespaceAround"/>
 
         <!-- Modifier Checks                                    -->
-        <!-- See https://checkstyle.org/config_modifier.html -->
+        <!-- See https://checkstyle.org/config_modifiers.html -->
         <module name="ModifierOrder"/>
         <module name="RedundantModifier"/>
 
@@ -163,13 +163,10 @@
         <!-- See https://checkstyle.org/config_coding.html -->
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
-        <module name="HiddenField" >
-            <property name="ignoreSetter" value="true" />
-            <property name="ignoreConstructorParameter" value="true" />
-        </module>
+        <!--        <module name="HiddenField"/>-->
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
-        <!-- <module name="MagicNumber"/> -->
+        <!--        <module name="MagicNumber"/>-->
         <module name="MissingSwitchDefault"/>
         <module name="MultipleVariableDeclarations"/>
         <module name="SimplifyBooleanExpression"/>
@@ -177,7 +174,7 @@
 
         <!-- Checks for class design                         -->
         <!-- See https://checkstyle.org/config_design.html -->
-        <!-- <module name="DesignForExtension"/> -->
+        <!--        <module name="DesignForExtension"/>-->
         <module name="FinalClass"/>
         <!-- <module name="HideUtilityClassConstructor"/> -->
         <module name="InterfaceIsType"/>
@@ -187,37 +184,14 @@
         <!-- See https://checkstyle.org/config_misc.html -->
         <module name="ArrayTypeStyle"/>
         <!-- <module name="FinalParameters"/> -->
-        <module name="TodoComment"/>
+        <!-- <module name="TodoComment"/> -->
         <module name="UpperEll"/>
-
-        <module name="Indentation">
-            <property name="basicOffset" value="4"/>
-        </module>
-        <module name="OneStatementPerLine"/>
 
         <!-- https://checkstyle.org/config_filters.html#SuppressionXpathFilter -->
         <module name="SuppressionXpathFilter">
             <property name="file" value="${org.checkstyle.sun.suppressionxpathfilter.config}"
                       default="checkstyle-xpath-suppressions.xml" />
             <property name="optional" value="true"/>
-        </module>
-
-        <module name="SuppressionCommentFilter">
-            <property name="offCommentFormat" value="CHECKSTYLE\: stop EqualsHashCode check"/>
-            <property name="onCommentFormat"  value="CHECKSTYLE\: resume EqualsHashCode check"/>
-            <property name="checkFormat" value="EqualsHashCode"/>
-        </module>
-
-        <module name="SuppressionCommentFilter">
-            <property name="offCommentFormat" value="CHECKSTYLE\: stop LeftCurly check"/>
-            <property name="onCommentFormat"  value="CHECKSTYLE\: resume LeftCurly check"/>
-            <property name="checkFormat" value="LeftCurly"/>
-        </module>
-
-        <module name="SuppressionCommentFilter">
-            <property name="offCommentFormat" value="CHECKSTYLE\: stop InnerAssignment check"/>
-            <property name="onCommentFormat"  value="CHECKSTYLE\: resume InnerAssignment check"/>
-            <property name="checkFormat" value="InnerAssignment"/>
         </module>
 
     </module>
