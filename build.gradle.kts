@@ -21,13 +21,6 @@ configurations {
 	}
 }
 
-sentry {
-	includeSourceContext = true
-
-	org = "06f2616b374b"
-	projectName = "java-spring-boot"
-	authToken = System.getenv("SENTRY_AUTH_TOKEN")
-}
 
 repositories {
 	mavenCentral()
