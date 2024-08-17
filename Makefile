@@ -1,23 +1,40 @@
-run-dist:
-	@./build/install/app/bin/app
+setup:
+	./gradlew wrapper --gradle-version 8.4
 
-lint:
-	@./gradlew checkstyleMain checkstyleTest
-
-test:
-	@./gradlew test
+clean:
+	./gradlew clean
 
 build:
-	@./gradlew clean build
+	./gradlew clean build
 
-jacoco:
-	./gradlew jacocoTestReport
+start:
+	./gradlew bootRun --args='--spring.profiles.active=dev'
 
-check:
-	@./gradlew check
+start-prod:
+	./gradlew bootRun --args='--spring.profiles.active=prod'
 
 install:
-	@./gradlew installDist
+	./gradlew installDist
 
+start-dist:
+	./build/install/app/bin/app
+
+lint:
+	./gradlew checkstyleMain checkstyleTest
+
+test:
+	./gradlew test
+
+report:
+	./gradlew jacocoTestReport
+
+check-updates:
+	./gradlew dependencyUpdates
+
+generate-migrations:
+	./gradlew diffChangeLog
+
+db-migrate:
+	./gradlew update
 
 .PHONY: build
