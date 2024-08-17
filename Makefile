@@ -10,8 +10,8 @@ test:
 build:
 	@./gradlew clean build
 
-report:
-	@./gradlew jacocoTestReport
+jacoco:
+	./gradlew jacocoTestReport
 
 check:
 	@./gradlew check
