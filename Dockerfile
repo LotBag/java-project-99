@@ -1,8 +1,8 @@
 FROM gradle:8.8-jdk21
 
-WORKDIR /demo
+WORKDIR /.
 
-COPY /demo .
+COPY /. .
 
 RUN gradle installDist
 
