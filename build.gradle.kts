@@ -66,6 +66,17 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+sentry {
+	// Generates a JVM (Java, Kotlin, etc.) source bundle and uploads your source code to Sentry.
+	// This enables source context, allowing you to see your source
+	// code as part of your stack traces in Sentry.
+	includeSourceContext = true
+
+	org = "06f2616b374b"
+	projectName = "java-spring-boot"
+	authToken = System.getenv("SENTRY_AUTH_TOKEN=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")
+}
+
 tasks.test {
 	useJUnitPlatform()
 	// https://technology.lastminute.com/junit5-kotlin-and-gradle-dsl/
