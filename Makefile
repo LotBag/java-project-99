@@ -17,7 +17,7 @@ check:
 	@./gradlew check
 
 install:
-	@./gradlew installDist
+	@./gradlew installDist --warning-mode all
 
 
 .PHONY: build
