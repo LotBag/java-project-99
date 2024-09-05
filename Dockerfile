@@ -4,6 +4,6 @@ WORKDIR /.
 
 COPY /. .
 
-RUN gradle installDist
+RUN gradle installDist --warning-mode all
 
 CMD ./build/install/app/bin/app
