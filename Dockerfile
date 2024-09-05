@@ -1,4 +1,4 @@
-FROM gradle:8.5-jdk21
+FROM gradle:8.8-jdk21
 
 WORKDIR /.
 
