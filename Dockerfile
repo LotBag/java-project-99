@@ -1,9 +1,9 @@
 FROM gradle:8.8-jdk21
 
-WORKDIR /.
+WORKDIR /
 
-COPY /. .
+COPY / .
 
-RUN gradle installDist --warning-mode all
+RUN ./gradlew installDist
 
 CMD ./build/install/app/bin/app
