@@ -2,6 +2,7 @@ package hexlet.code.component;
 
 import hexlet.code.model.TaskStatus;
 import hexlet.code.repository.TaskStatusRepository;
+import io.sentry.Sentry;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -40,5 +41,12 @@ public class TaskStatusInitializer implements ApplicationRunner {
         published.setSlug("published");
 
         List<TaskStatus> taskStatuses = List.of(draft, toReview, toBeFixed, toPublish, published);
+        for (TaskStatus taskStatus : taskStatuses) {
+            try {
+                taskStatusRepository.save(taskStatus);
+            } catch (DataIntegrityViolationException e) {
+                Sentry.captureException(e);
+            }
+        }
     }
 }
