@@ -2,7 +2,6 @@ package hexlet.code.component;
 
 import hexlet.code.model.Label;
 import hexlet.code.repository.LabelRepository;
-import io.sentry.Sentry;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -31,12 +30,6 @@ public class LabelInitializer implements ApplicationRunner {
         bug.setName("bug");
 
         var labels = List.of(feature, bug);
-        for (Label label : labels) {
-            try {
-                labelRepository.save(label);
-            } catch (DataIntegrityViolationException e) {
-                Sentry.captureException(e);
-            }
-        }
+
     }
 }

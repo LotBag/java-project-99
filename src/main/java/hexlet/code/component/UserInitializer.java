@@ -2,7 +2,6 @@ package hexlet.code.component;
 
 import hexlet.code.model.User;
 import hexlet.code.repository.UserRepository;
-import io.sentry.Sentry;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -25,13 +24,6 @@ public class UserInitializer implements ApplicationRunner {
         User user = new User();
         user.setEmail(email);
         user.setPasswordDigest(passwordEncoder.encode(password));
-
-        try {
-            userRepository.save(user);
-        } catch (DataIntegrityViolationException e) {
-            Sentry.captureException(e);
-        }
-
 
     }
 }
