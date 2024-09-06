@@ -74,7 +74,7 @@ sentry {
 
 	org = "06f2616b374b"
 	projectName = "java-spring-boot"
-	authToken = System.getenv("SENTRY_AUTH_TOKEN=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")
+	authToken = System.getenv("SENTRY_AUTH_TOKEN=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")
 }
 
 tasks.test {
