@@ -57,6 +57,9 @@ tasks.withType<Test> {
 }
 
 sentry {
+	// Generates a JVM (Java, Kotlin, etc.) source bundle and uploads your source code to Sentry.
+	// This enables source context, allowing you to see your source
+	// code as part of your stack traces in Sentry.
 	includeSourceContext = true
 
 	org = "06f2616b374b"
@@ -66,6 +69,7 @@ sentry {
 
 tasks.test {
 	useJUnitPlatform()
+	// https://technology.lastminute.com/junit5-kotlin-and-gradle-dsl/
 	testLogging {
 		exceptionFormat = TestExceptionFormat.FULL
 		events = mutableSetOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
